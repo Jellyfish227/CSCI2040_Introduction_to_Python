@@ -1,0 +1,5 @@
+Test for input 'CSCI2040' passed!
+Test for input 'Python.py' passed!
+Test for input 'I Love Python More than java' passed!
+
+3 out of 3 test cases passed.

@@ -63,7 +63,7 @@ class TestCase3(TestCase):
 
 
 # Run test cases
-def run_test_case(tc: TestCase):
+def run_test_case(tc: TestCase, timeout = 60):
 
     def decode(output: bytes | str):
         return output.decode() if isinstance(output, bytes) else output
@@ -78,7 +78,7 @@ def run_test_case(tc: TestCase):
     print(f"Running Test Case {tc.case_id} ...")
 
     # Spawn a child process to run the script to be tested
-    child = exp.spawn('python ' + script_name)
+    child = exp.spawn('python ' + script_name, timeout = timeout)
     child.delaybeforesend = delay_before_send
 
     passed = True

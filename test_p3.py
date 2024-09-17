@@ -5,9 +5,9 @@ if (os.name == 'posix'):
 else:
     import wexpect as exp
 
-def test_script(input_string, choice, expected_output):
+def test_script(input_string, choice, expected_output, timeout = 60):
     try:
-        child = exp.spawn('python p3.py')
+        child = exp.spawn('python p3.py', timeout = timeout)
         # # Enable logging for debugging
         # child.logfile = sys.stdout.buffer
 

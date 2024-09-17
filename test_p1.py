@@ -4,9 +4,9 @@ if (os.name == 'posix'):
 else:
     import wexpect as exp
 
-def test_script(input_string, expected_output):
+def test_script(input_string, expected_output, timeout=60):
     try:
-        child = exp.spawn('python p1.py')
+        child = exp.spawn('python p1.py', timeout=timeout)
         child.expect('Enter a string: ')
         child.sendline(input_string)
         child.expect(expected_output[0])

@@ -1,36 +1,9 @@
-s = input('Enter a string: ')
+def recursive_sqrt(a, x):
+    # a is an integer, x is the former guess
+    # your statement follows
 
-print("Choose a transformation:")
-print("1. Convert to uppercase")
-print("2. Replace vowels with \'*\'")
-print("3. Reverse the string")
-print("4. Append \'EVEN\' or \'ODD\'")
+    return value # value is next square root guess
 
-choice = input('Enter your choice: ')
-
-match choice:
-    case "1":
-        s = s.upper()
-    case "2":
-        temp = ''
-        for i in s:
-            if i.lower() == 'a' or i.lower() == 'e' or i.lower() == 'i' or i.lower() == 'o' or i.lower() == 'u':
-                temp += '*'
-            else:
-                temp += i
-        s = temp
-    case "3":
-        temp = ''
-        for i in reversed(s):
-            temp += i
-        s = temp
-    case "4":
-        if len(s) % 2 == 0:
-            s = s + "EVEN"
-        else:
-            s = s + "ODD"
-    case _:
-        print("Invalid choice. No transformation applied.")
-        
-print(f"Transformed string: {s}")
-print("Transformation complete. Goodbye!")
+if __name__ == '__main__':
+    # you can test your function by using the following
+    print(recursive_sqrt(3, 1))

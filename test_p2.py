@@ -1,124 +1,43 @@
 import os
-if os.name == 'posix':
-    import pexpect as exp
+# Ensure the working directory is the same as the directory where the file is located.
+current_directory = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_directory)
+
+# Exercise 2
+if (os.path.isfile('p2.py')):
+    try:
+        from p2 import roman_to_decimal
+        from p2 import decimal_to_roman
+        print('Load p2.py')
+
+        expected1 = [97,29,34]
+        answer1=[]
+        test_case1 = ['XCVII', 'XXIX', 'XXXIV']
+
+        expected2=['LXXXVIII','LVII','XLVII']
+        answer2=[]
+        test_case2=[88,57,47]
+
+        len1=len(test_case1)
+        len2=len(test_case2)
+        try:
+            print('Testing...')
+            for i in range(len1):
+                answer1.append(roman_to_decimal(test_case1[i]))
+            for i in range(len2):
+                answer2.append(decimal_to_roman(test_case2[i]))
+
+            if answer1 == expected1 and answer2== expected2:
+                print("You passed all the tests!")
+            elif answer1== expected1 and answer2!=expected2:
+                print("You passed the test for the function of roman_to_decimal, but you failed the test for the function of decimal_to_roman!")
+            elif answer1!=expected1 and answer2==expected2:
+                print("You passed the test for the function of decimal_to_roman, but you failed the test for the function of roman_to_decimal!")
+            else:
+                print("You failed the test for these two functions.")
+        except:
+            print('Runtime error when testing roman_to_decimal or decimal_to_roman, please check your code!')
+    except:
+        print('Cannot load roman_to_decimal or decimal_to_roman, please check the function name or syntax.')
 else:
-    import wexpect as exp
-
-
-# Global settings
-script_name = "p2.py"
-debug_mode = True
-delay_before_send = 0.1
-
-
-# Test case data
-class TestCase:
-    pass
-
-
-class TestCase1(TestCase):
-    case_id = 1
-    inputs = ['2']
-    outputs = [
-        'Enter h: 2\r\n' +
-        ' /\\\r\n' +
-        '/__\\'
-    ]
-
-
-class TestCase2(TestCase):
-    case_id = 2
-    inputs = ['5']
-    outputs = [
-        'Enter h: 5\r\n' +
-        '    /\\\r\n' +
-        '   /  \\\r\n' +
-        '  /    \\\r\n' +
-        ' /      \\\r\n' +
-        '/________\\'
-    ]
-
-
-class TestCase3(TestCase):
-    case_id = 3
-    inputs = ['0', '-1', '1', '31', '7']
-    outputs = [
-        'Enter h: 0\r\n' +
-        'Invalid input for h!\r\n' +
-        'Enter h: -1\r\n' +
-        'Invalid input for h!\r\n' +
-        'Enter h: 1\r\n' +
-        'Invalid input for h!\r\n' +
-        'Enter h: 31\r\n' +
-        'Invalid input for h!\r\n' +
-        'Enter h: 7\r\n' +
-        '      /\\\r\n' +
-        '     /  \\\r\n' +
-        '    /    \\\r\n' +
-        '   /      \\\r\n' +
-        '  /        \\\r\n' +
-        ' /          \\\r\n' +
-        '/____________\\'
-    ]
-
-
-# Run test cases
-def run_test_case(tc: TestCase, timeout = 60):
-
-    def decode(output: bytes | str):
-        return output.decode() if isinstance(output, bytes) else output
-
-    def out_eq(output: bytes | str, expected: str):
-        return decode(output) == expected
-
-    def print_debug_info(*args):
-        print("Produced:", args[0], sep='\n')
-        print("Expected:", args[1], sep='\n')
-
-    print(f"Running Test Case {tc.case_id} ...")
-
-    # Spawn a child process to run the script to be tested
-    child = exp.spawn('python ' + script_name, timeout = timeout)
-    child.delaybeforesend = delay_before_send
-
-    passed = True
-    for user_in in tc.inputs:   # send (multiple) user inputs
-        child.sendline(user_in)
-
-    # Wait for the script's response
-    child.expect(exp.EOF)
-
-    # Get the script's output
-    pgm_out = child.before.rstrip()  # strip the EOL char
-
-    exp_out = tc.outputs[0]  # (single) expected output
-    if not out_eq(pgm_out, exp_out):
-        if debug_mode:
-            print_debug_info(decode(pgm_out), exp_out)
-        passed = False
-
-    # Close the child process
-    child.close()
-
-    return passed
-
-
-if __name__ == '__main__':
-
-    if not os.path.isfile(script_name):
-        print(f'{script_name} does not exist!', 'Check your script name.')
-        print('Make sure it is put in the same folder with this test script.')
-        raise SystemExit(1)
-
-    test_cases = [TestCase1(), TestCase2(), TestCase3()]
-
-    passed_cases = 0
-    for test_case in test_cases:
-        if run_test_case(test_case):
-            print(f'Test case {test_case.case_id}: Passed!\n')
-            passed_cases += 1
-        else:
-            print(f'Test case {test_case.case_id}: Failed!\n')
-
-    if passed_cases == len(test_cases):
-        print("Congrats! You passed all test cases!")
+    print('Cannot find p2.py, please put p2.py and this test script in the same folder.')

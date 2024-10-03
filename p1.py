@@ -1,27 +1,11 @@
-s = input("Enter a string: ")
-alphabet = {}
-count = 0
-
-def expand_dict(ch):
-    if alphabet.get(ch) is None:
-        alphabet[ch] = 1
-    else:
-        alphabet[ch] += 1
-
-for i in s:
-    if i.isalpha():
-        count += 1
-        expand_dict(i.lower())
-
-maxCh = ''
-maxCount = 0
-for i in alphabet:
-    if alphabet[i] > maxCount:
-        maxCh = i
-        maxCount = alphabet[i]
-    elif alphabet[i] == maxCount:
-        maxCh = min(i, maxCh)
+def divisible_sublist(list1, d1, d2):
+    # your statement follows
+    return lista, listb, listc
 
 
-print("The number of alphabetic letters in \""+ s +"\" is \"{}\".".format(count))
-print("The most frequent alphabetic letter in \""+ s +"\" is \""+ maxCh +"\".")
+if __name__ == '__main__':
+    # you can test your function by using the following
+    list1 = [21, 25, 9, 16, 28]
+    d1 = 3
+    d2 = 7
+    print(divisible_sublist(list1, d1, d2))

@@ -1,7 +1,0 @@
-Test for input 'Python' passed!
-Test for input 'HongKong' passed!
-Test for input 'I love Python!' passed!
-Test for input 'programming' passed!
-Test for input 'CSCI2040' passed!
-
-5 out of 5 test cases passed.

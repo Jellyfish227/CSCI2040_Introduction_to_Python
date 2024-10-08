@@ -1,0 +1,3 @@
+Load p3.py
+Testing...
+You passed all the tests!

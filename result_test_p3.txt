@@ -1,3 +1,15 @@
-Load p3.py
+Successfully load p3.py and function load_data
 Testing...
-You passed all the tests!
+You passed the test!
+
+Successfully load p3.py and function query
+Testing...
+You passed the test!
+
+Successfully load p3.py and function update
+Testing...
+You passed the test!
+
+Successfully load p3.py and function get_depts_size
+Testing...
+You passed the test!

@@ -1,14 +1,42 @@
-def quicksort(a):
-    # Enter your code here
-    if len(a) <= 1:
-        return a
-    pivot = a[0]
-    small = [x for x in a if x < pivot]
-    equal = [x for x in a if x == pivot]
-    large = [x for x in a if x > pivot]
+# Sample answer
+list0 = range(1, 12)
+# 2a
+list1 = # Enter one line code to generate list1
+list2 = # Enter one line code to generate list2
 
-    return quicksort(large) + equal + quicksort(small)
+# 2b
+list3 = # Enter one line code to generate list3
+list4 = # Enter one line code to generate list4
 
-if __name__ == "__main__":
-    # you can test your function by using the following
-    print(quicksort([1, 2, 4, 5, 1, 3, 2, -1]))
+# 2c
+list5 = # Enter one line code to generate list5
+
+# 2d
+from functools import reduce
+list6 = # Enter one line code to generate list6
+
+# 2e
+student_scores = {
+        "Alice": 92,
+        "Bob": 85,
+        "Charlie": 77,
+        "Diana": 88,
+        "Ethan": 95,
+        "Fiona": 55,
+        "George": 68,
+        "Hannah": 99,
+    }
+list7 = # Enter one line code to generate list7
+
+# 2f
+dict1 = # Enter one line code to generate dict1
+
+
+# print(list1)
+# print(list2)
+# print(list3)
+# print(list4)
+# print(list5)
+# print(list6)
+# print(list7)
+# print(dict1)

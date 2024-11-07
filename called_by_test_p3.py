@@ -1,0 +1,16 @@
+import p3
+
+l = p3.LinkedList()
+print('list length %d' % (l.len()))
+l.add(20)
+l.add(10)
+l.add(15)
+l.add(20)
+l.Lprint()
+print(l.test(10))
+print(l.test(30))
+l.add(30)
+print('list length %d' % (l.len()))
+l.Lprint()
+l.remove(20)
+l.Lprint()

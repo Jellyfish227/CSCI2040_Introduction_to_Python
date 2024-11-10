@@ -26,7 +26,12 @@ class LinkedList(object):
             # Complete the function with the following hints:
             # If the current node's value matches the query value, set result to True and break the loop.
             # Otherwise, move to the next node in the list.
-        return result            
+            if tmp_node.value == value:
+                result = True
+                break
+            else:
+                tmp_node = tmp_node.next
+        return result
 
 
     def remove(self, value):
@@ -37,9 +42,19 @@ class LinkedList(object):
         while tmp_node:
             # Complete the function with the following hints:
             # Check if the current node's value matches the value to be removed.
-            # If found and it is the first node, update the head of the list.
-            # If found and it is not the first node, update the previous node's next to skip the current node.
-            # If the node is removed, decrement the length of the list.
+            if tmp_node.value == value:
+                # If found and it is the first node, update the head of the list.
+                if tmp_node.next == self.first.next: # compare next ptr see if they are the same node
+                    self.first = tmp_node.next
+                # If found and it is not the first node, update the previous node's next to skip the current node.
+                else:
+                    prev_node.next = tmp_node.next
+                self.length -= 1
+                break
+            else:
+                prev_node = tmp_node
+                tmp_node = tmp_node.next
+        # If the node is removed, decrement the length of the list.
         if self.length == prev_len:
             return False
         else:
@@ -49,6 +64,7 @@ class LinkedList(object):
     def len(self): 
         # Complete the function with the following hint:
         # Return the current length of the linked list.
+        return self.length
 
 
     def Lprint(self):
@@ -59,7 +75,11 @@ class LinkedList(object):
         while tmp_node:
             # Complete the function with the following hints:
             # Append the current node's value to the result list.
+            result.append(tmp_node.value)
             # Move to the next node.
+            tmp_node = tmp_node.next
         # Append "none" to indicate the end of the list.
+        result.append('none')
         # Print the linked list values in the standard format via result list.
+        print(*result, sep='-->')
 

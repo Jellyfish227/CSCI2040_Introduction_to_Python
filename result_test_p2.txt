@@ -1,3 +1,10 @@
 Successfully load p2.py
 Testing...
-You passed all the tests! But still we will check if you use list comprehension
+You passed the test for list1!
+You passed the test for list2!
+You passed the test for list3!
+You passed the test for list4!
+You passed the test for list5!
+You passed the test for list6!
+You passed the test for list7!
+You passed the test for dict1!

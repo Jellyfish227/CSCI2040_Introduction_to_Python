@@ -50,8 +50,8 @@ class CalculatorEngine():
         
     def doModulo(self):
         try:
-            # your code here
-        except # your code here
+            self.performBinaryOp(lambda x, y: x % y)
+        except ZeroDivisionError:
             print("divide by 0!")
             exit(1)
 
@@ -71,10 +71,17 @@ class CalculatorEngine():
 
 class RPNCalculator(CalculatorEngine):
     def __init__(self):
-        # your code here
+        super().__init__()
 
     def eval(self, line):
         # your code here
+        for ch in line:
+            if ch.isdigit():
+                self.pushOperand(int(ch))
+            else:
+                self.doTextOp(ch)
+        return self.currentOperand()
+
 
     def run(self):
         while True:

@@ -1,3 +1,17 @@
-Successfully load p1.py
-Testing...
-You passed the test!
+Test Case 1 Passed
+Matrix C:
+[[10. 15.]
+ [13. 18.]
+ [16. 21.]
+ [19. 24.]]
+Please check the shape of matrix A and B
+Test Case 2 Passed (Incompatible shapes detected)
+Test Case 3 Passed
+Matrix C:
+[[ 3.  9. 15.]
+ [11. 17. 23.]]
+Test Case 4 Passed
+Matrix C:
+[[0. 0.]
+ [0. 0.]
+ [0. 0.]]

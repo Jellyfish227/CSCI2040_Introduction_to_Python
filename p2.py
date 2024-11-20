@@ -1,42 +1,21 @@
-# Sample answer
-list0 = range(1, 12)
-# 2a
-list1 = list(map(lambda x: 2 ** x, list0))
-list2 = list(map(lambda x: x % 3, list0))
+import numpy as np
 
-# 2b
-list3 = [x for x in range(1, 20) if x % 2 != 0]
-list4 = [x for x in range(1, 20) if (x ** 0.5) % 1 == 0]
+def reshape_and_translate( array , new_shape , shift_r , shift_c ):
+    
+    array = np.reshape(array, new_shape)
+    
+    tmpArr = np.copy(array)
+    if shift_r > 0:
+        for i in range(shift_r):
+            tmpArr[i] = array[i+1]
+    if shift_c > 0:
+        for i in range(shift_c):
+            tmpArr = np.roll(tmpArr, 1, axis=1)
+    # array = np.roll(array, shift_r, axis=0)
+    # array = np.roll(array, shift_c, axis=1)
 
-# 2c
-list5 = [0 if (x < 0) else x for x in range(-5, 6)]
+    # handle out of bound situations
+    
+    return array
 
-# 2d
-from functools import reduce
-list6 = [reduce(lambda x, y: x * y, range(1, i + 1)) for i in range(1, 12)]
-
-# 2e
-student_scores = {
-        "Alice": 92,
-        "Bob": 85,
-        "Charlie": 77,
-        "Diana": 88,
-        "Ethan": 95,
-        "Fiona": 55,
-        "George": 68,
-        "Hannah": 99,
-    }
-list7 = [name.upper() for name, score in student_scores.items() if (score > 80)]
-
-# 2f
-dict1 = {i: str(' ').join(['{}*{}={}'.format(j, i, i*j) for j in range(1, i + 1)]) for i in range(1, 10)}
-
-
-# print(list1)
-# print(list2)
-# print(list3)
-# print(list4)
-# print(list5)
-# print(list6)
-# print(list7)
-# print(dict1)
+if __name__ == '__main__':

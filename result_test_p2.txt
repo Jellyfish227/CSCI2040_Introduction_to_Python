@@ -1,10 +1,12 @@
-Successfully load p2.py
-Testing...
-You passed the test for list1!
-You passed the test for list2!
-You passed the test for list3!
-You passed the test for list4!
-You passed the test for list5!
-You passed the test for list6!
-You passed the test for list7!
-You passed the test for dict1!
+Test Case 1 Passed (Sample Run)
+Result:
+[[0 0 0 0 0 0 0 0]
+ [0 0 1 2 3 4 5 6]]
+Test Case 2 Passed (No Shift)
+Test Case 3 Passed (Shift Beyond Bounds)
+Test Case 4 Passed (Negative Shift)
+Result:
+[[ 7  8  0  0]
+ [11 12  0  0]
+ [ 0  0  0  0]]
+Test Case 5 Passed (Non-Rectangular Shift)

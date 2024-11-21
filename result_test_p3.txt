@@ -1,8 +1,0 @@
-You passed the test case 1 :)
-You passed the test case 2 :)
-You passed the test case 3 :)
-You passed the test case 4 :)
-You passed the test case 5 :)
-You passed the test case 6 :)
-You passed the test case 7 :)
-More details about those test cases can be found in called_by_test_p3.py
